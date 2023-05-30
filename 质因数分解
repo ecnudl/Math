@@ -1,0 +1,37 @@
+代码模板用于计算出n的所有质因数本质数能分出来的个数
+#include <cmath>
+#include <iostream>
+using namespace std;
+
+int n,t;
+
+void solve()
+{
+    for(int i = 2; i <= n/i; i++)
+    {
+        if(n % i == 0)
+        {
+            int j = 0;
+            while(n % i == 0)
+            {
+                n /= i;
+                j++;
+            }
+            cout << i << " " << j << endl;
+        }
+    }
+    if(n > 1) cout << n << " " << 1 << endl;
+    cout << endl;
+}
+
+int main()
+{
+    cin >> t;
+    while(t --)
+    {
+        cin >> n;
+        solve();
+    }
+    
+    return 0;
+}
