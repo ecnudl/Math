@@ -1,0 +1,30 @@
+其中设计两个数论知识，一个是约数之和的公式，另一个就是求S(n) = x^0 + x^1 + …… + x^n,有S(n) = S(n-1)*x + 1
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+typedef long long LL;
+const int mod = 1e9+7;
+int n;
+unordered_map <int,int> mp;
+int main () {
+    cin >> n;
+    while (n--) {
+        int x;
+        cin >> x;
+        for (int i = 2;i <= x/i;i++) {
+            while (x%i == 0) {
+                mp[i]++;
+                x /= i;
+            }
+        }
+        if (x > 1) mp[x]++;
+    }
+    LL ans = 1;
+    for (auto [a,b] : mp) {
+        LL t = 1;
+        while (b--) t = (t*a+1)%mod;
+        ans = ans*t%mod;
+    }
+    cout << ans << endl;
+    return 0;
+}
