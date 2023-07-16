@@ -1,0 +1,11 @@
+int GCD(int a,int b)
+{
+  while(a % b)
+  {
+      int c = a % b;
+      a = b;
+      b = c;
+  }
+  return b;
+}
+最小公倍数与最大公约数的乘积即为二者相乘
