@@ -1,3 +1,4 @@
+const int N = 5e5 + 6,mod = 998244353;
 int fpow(int x, int t = mod - 2) {
 	int res = 1;
 	for (; t; t >>= 1, x = 1ll * x * x % mod)
